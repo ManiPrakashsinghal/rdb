@@ -1,0 +1,100 @@
+@charset "utf-8";
+/* CSS Document */
+
+.sidebar-css{
+padding-left : 0 !important;
+min-height: 598px;
+background-color: #343a40 !important;
+padding-right: 0;
+}
+
+.sidebar-list-css{
+background-color: #343a40 !important;
+color : white !important;
+border-left:hidden;
+border-right:hidden;
+
+}
+
+.sidebar-list-css:hover{
+background-color: #000000 !important;
+color : white;
+
+font-weight:500;
+}
+
+.ml-auto {
+     padding-right:20px;
+}
+.login-css{
+width:400px;
+margin-top:150px;
+background-color:#00FFFF;
+padding:20px 20px 20px 20px;
+text-align:left;
+}
+	
+.navbar-color{
+background-color:#00FFFF !important;
+}
+.mobile-sidebar{
+display:none;
+margin-top: -20px;
+width:200px;
+position:absolute;
+z-index:999;
+
+}
+.tab-css{
+	background-color: darkgray;
+    color: white !important;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid;
+    cursor: pointer;
+}
+.tabactive{
+	background-color: red !important;
+}
+.tab-css-footer{
+	background-color: green;
+    color: white !important;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid;
+    cursor: pointer;
+}
+
+.modal{
+	top : 20%;
+	left : 20%;
+	}
+	
+	.modal-content-success{
+	width : 350px;
+	
+	}
+	.modal-body-success{
+	height : 130px;
+	}
+	
+	.modal-footer-success{
+	background-color: green;
+	height : 50px;
+	}
+	
+	
+		.modal-content-error{
+	width : 350px;
+	
+	}
+	.modal-body-error{
+	height : 130px;
+	}
+	
+	.modal-footer-error{
+	background-color: red;
+	height : 50px;
+	}

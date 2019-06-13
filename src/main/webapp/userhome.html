@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="js/jquery.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/angular-ui-router.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/style.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<script src="js/ui-grid.js"></script>
+<link rel="stylesheet" href="http://ui-grid.info/release/ui-grid.css" type="text/css">
+
+<script src="controller/appController.js"></script>
+<script src="routing/uiRouting.js"></script>
+<script src="controller/client_listCtrl.js"></script>
+<script src="controller/addClientDetailCtrl.js"></script>
+<script src="controller/officeExpensesCtrl.js"></script>
+<script src="controller/addEmployessCtrl.js"></script>
+<script src="controller/payeeDetailsCtrl.js"></script>
+<script src="controller/addExpensesCtrl.js"></script>
+<script src="controller/changePasswordCtrl.js"></script>
+<script src="controller/paymentCtrl.js"></script>
+<script src="controller/payClientPaymentCtrl.js"></script>
+<script src="controller/plotSchemeCtrl.js"></script>
+<script src="controller/addPlotCtrl.js"></script>
+<script src="controller/addSchemeCtrl.js"></script>
+<script src="controller/dashboardCtrl.js"></script>
+
+
+<script src="services/share.js"></script>
+
+
+
+<script type="text/javascript">
+
+	function alertS(){
+		$('#succssPop').modal('show'); 
+	}
+	function alertE(){
+		$('#errorPop').modal('show'); 
+	};
+</script>
+
+
+<title>Rdb</title>
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+<!--header //start-->
+
+<div ng-include src="'header.html'"></div>
+
+<!--header //end-->
+
+<div class="container-fluid">
+	<div class="row" style="margin-top: -20px;">
+    <!--sidebar laptop view //start-->
+    	<div class="col-lg-2 col-md-3 hidden-xs hidden-sm sidebar-css">
+            <div ng-include src="'sidebar.html'"></div>
+        </div>
+   <!--sidebar laptop view //end-->
+  
+        <div class="col-lg-10 col-md-9 col-xs-12 col-sm-12">
+        	<div ui-view></div>
+        </div>
+    </div>
+</div>
+
+
+ <!-- Modal success//start -->
+<div class="container">
+
+ 
+  <div class="modal fade" id="succssPop" role="dialog">
+    <div class="modal-dialog" data-dismiss="modal">
+    
+      <!-- Modal content-->
+      <div class="modal-content modal-content-success">
+        
+        <div class="modal-body modal-body-success">
+        <center>
+        	<img alt="success" src="image/success.png" width="100px">
+        </center>
+         	
+        </div>
+        <div class="modal-footer modal-footer-success">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- Modal success//end -->
+ 
+  <!-- Modal error//start -->
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="errorPop" role="dialog">
+    <div class="modal-dialog" data-dismiss="modal">
+    
+      <!-- Modal content-->
+      <div class="modal-content modal-content-error">
+        
+        <div class="modal-body modal-body-error">
+        <center>
+        	<img alt="success" src="image/error.png" width="100px">
+        </center>
+         	
+        </div>
+        <div class="modal-footer modal-footer-error">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- Modal error//start -->
+</body>
+</html>

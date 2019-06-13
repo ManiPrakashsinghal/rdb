@@ -1,0 +1,194 @@
+<div ng-controller="addClientDetailCtrl" class="row">
+	<div class="col-lg-6 tab-css" ng-click="setFinanceTab()" ng-class="{tabactive: tabActiveFinance}"><span>Finance</span></div>
+	<div class="col-lg-6 tab-css"  ng-click="setRealEstateTab()" ng-class="{tabactive: tabActiveRealEstate}"><span>Real Estate</span></div>
+	<div class="col-lg-12" ng-show="setFinanceFlag">
+		<div class="row"  style="padding-top: 30px">
+			<div class="col-lg-6">
+				<div class="form-group">
+    				<span>First Reference Name:</span>
+    				<input type="text" class="form-control">
+  				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="form-group">
+    				<span>First Mobile Number:</span>
+    				<input type="text" class="form-control">
+  				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="form-group">
+    				<span>Second Reference Name:</span>
+    				<input type="text" class="form-control">
+  				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="form-group">
+    				<span>Second Mobile Number:</span>
+    				<input type="text" class="form-control">
+  				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="form-group">
+    				<span>Loan Amount:</span>
+    				<input type="text" class="form-control">
+  				</div>
+			</div>
+			
+			<div class="col-lg-4">
+				<div class="form-group">
+    				<span>Installment:</span>
+    				<select class="form-control">
+    					<option>--Select--</option>
+    					<option>Weekly</option>
+    					<option>Monthly</option>
+    				</select>
+  				</div>
+			</div>
+			
+			<div class="col-lg-4">
+				<div class="form-group">
+    				<span>Payment Date:</span>
+    				<input type="date" class="form-control">
+  				</div>
+			</div>
+			
+			<div class="col-lg-12">
+				<div class="form-group">
+    				<span>Description:</span>
+    				<textarea type="text" class="form-control"></textarea>
+  				</div>
+			</div>
+			
+		</div>
+		
+  		
+  		
+  		<button type="submit" class="btn btn-success" ng-click="addClientDetail()">Submit</button>
+	</div>
+	
+	<div class="col-lg-12" ng-show="setRealEstateFlag">
+		<div class="row"  style="padding-top: 30px">
+			<div class="col-lg-4">
+				<div class="form-group">
+    				<span>Nominee Name:</span>
+    				<input type="text" class="form-control">
+  				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="form-group">
+    				<span>Nominee Relation:</span>
+    				<input type="text" class="form-control">
+  				</div>
+			</div>
+			
+			<div class="col-lg-4">
+				<div class="form-group">
+    				<span>Scheme Name:</span>
+    				<Select class="form-control">
+    					<option>--Select--</option>
+    				</Select>
+  				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="form-group">
+    				<span>Payment Type:</span>
+    				<Select class="form-control">
+    					<option>--Select--</option>
+    					<option>Cash</option>
+    					<option>Installment</option>
+    				</Select>
+  				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="form-group">
+    				<span>Installment Amount:</span>
+    				<input type="text" class="form-control">
+  				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="form-group">
+    				<span>First Installment Date:</span>
+    				<input type="date" class="form-control">
+  				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="form-group">
+    				<span>Last Installment Date:</span>
+    				<input type="date" class="form-control">
+  				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="form-group">
+    				<span>Plot Number:</span>
+    				<select class="form-control">
+    					<option>--Select--</option>
+    					<option>1</option>
+    					<option>2</option>
+    				</select>
+  				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="form-group">
+    				<span>Shop Number:</span>
+    				<select class="form-control">
+    					<option>--Select--</option>
+    					<option>1</option>
+    					<option>2</option>
+    				</select>
+  				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="form-group">
+    				<span>Total Area:</span>
+    				<input type="text" class="form-control">
+  				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="form-group">
+    				<span>Basic Rate Of Plot:</span>
+    				<input type="text" class="form-control">
+  				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="form-group">
+    				<span>Basic Rate Of Shop:</span>
+    				<input type="text" class="form-control">
+  				</div>
+			</div>
+		
+			<div class="col-lg-4">
+				<div class="form-group">
+    				<span>Total Payment Of Plot:</span>
+    				<input type="text" class="form-control">
+  				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="form-group">
+    				<span>Plot Status:</span>
+    				<Select class="form-control">
+    					<option>--Select--</option>
+    					<option>Hold</option>
+    					<option>Booked</option>
+    				</Select>
+  				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="form-group">
+    				<span>Description:</span>
+    				<textarea class="form-control"></textarea>
+  				</div>
+			</div>
+				<div class="col-lg-4">
+				<div class="form-group">
+    				<span>Document:</span>
+    				<input type="file" class="form-control">
+  				</div>
+			</div>
+			
+		</div>
+		
+  		
+  		
+  		<button type="submit" class="btn btn-success" ng-click="addClientDetail()">Submit</button>
+	</div>
+</div>

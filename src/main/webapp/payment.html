@@ -1,0 +1,46 @@
+
+<div ng-controller="paymentCtrl" class="row">
+	<div class="col-lg-6 tab-css" ng-click="setFinanceTab()" ng-class="{tabactive: tabActiveFinance}"><span>Finance</span></div>
+	<div class="col-lg-6 tab-css"  ng-click="setRealEstateTab()" ng-class="{tabactive: tabActiveRealEstate}"><span>Real Estate</span></div>
+	
+<div class="col-lg-12">
+	<div class="row" style="margin-top: 10px; margin-bottom: 10px">
+		<div class="col-lg-1"> From : </div><div class="col-lg-3">
+			<input type="date" class="form-control">
+		</div>
+		<div class="col-lg-1"> To : </div><div class="col-lg-3">
+			<input type="date" class="form-control">
+		</div>
+		<div class="col-lg-1"> Client Mobile: </div><div class="col-lg-3">
+			<select class="form-control" class="form-control">
+				<option>--Select--</option>
+				<option>Mobile 1</option>
+				<option>Mobile 2</option>
+				<option>Mobile 3</option>		
+			</select>
+		</div>
+		
+	</div>
+	<div class="row">
+		<div class="col-lg-1"> Type : </div><div class="col-lg-2">
+			<select class="form-control">
+				<option>--Select--</option>
+				<option>Pending</option>
+				<option>Paid</option>
+			</select>
+		</div>		
+		<div class="col-lg-1"><button class="btn btn-success">Get Client</button></div>
+	</div><br>
+	
+</div>
+
+		<div class="col-lg-12" style="margin-left: -10px;">
+			<div ui-grid="{ data: users }" class="myGrid"  style="height:488px" ></div>
+		</div>
+	
+	
+		<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 tab-css-footer" ng-click="payClient()"><span>Pay Client Payment</span></div>
+	    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 tab-css-footer"><span>Modify</span></div>
+	    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 tab-css-footer"><span>Approve</span></div>
+	
+</div>

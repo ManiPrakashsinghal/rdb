@@ -1,0 +1,16 @@
+
+<div ng-controller="payeeDetailsCtrl" class="row">
+<div class="col-lg-6 tab-css" ng-click="setFinanceTab()" ng-class="{tabactive: tabActiveFinance}"><span>Office Expenses</span></div>
+<div class="col-lg-6 tab-css"  ng-click="setRealEstateTab()" ng-class="{tabactive: tabActiveRealEstate}"><span> Payee Details</span></div>
+	
+	
+		<div class="col-lg-12" style="margin-left: -10px;">
+			<div ui-grid="gridOptions" ui-grid-selection class="myGrid"  style="height:536px" ></div>
+		</div>
+	
+	
+		<div class="col-lg-4 tab-css-footer" ng-click="addEmployees()"><span>Add</span></div>
+	    <div class="col-lg-4 tab-css-footer" ng-click="modifyEmployees()"><span>Modify</span></div>
+	    <div class="col-lg-4 tab-css-footer" ng-if="false" style="background-color: red !important"><span>Delete</span></div>
+	
+</div>

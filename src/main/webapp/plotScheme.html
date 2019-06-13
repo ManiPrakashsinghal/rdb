@@ -1,0 +1,17 @@
+
+<div ng-controller="plotSchemeCtrl" class="row">
+<div class="col-lg-6 tab-css" ng-click="setFinanceTab()" ng-class="{tabactive: tabActiveFinance}"><span>Plot</span></div>
+<div class="col-lg-6 tab-css"  ng-click="setRealEstateTab()" ng-class="{tabactive: tabActiveRealEstate}"><span> Scheme</span></div>
+	
+	
+		<div class="col-lg-12" style="margin-left: -10px;">
+			<div ui-grid="{ data: users }" class="myGrid"  style="height:536px" ></div>
+		</div>
+	
+	
+		<div class="col-lg-3 tab-css-footer" ng-click="addPlot()"><span>Add Plot</span></div>
+		<div class="col-lg-3 tab-css-footer" ng-click="addScheme()"><span>Add Scheme</span></div>
+	    <div class="col-lg-3 tab-css-footer"><span>Modify</span></div>
+	    <div class="col-lg-3 tab-css-footer" style="background-color: red !important"><span>Delete</span></div>
+	
+</div>

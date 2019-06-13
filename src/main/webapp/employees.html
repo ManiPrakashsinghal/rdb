@@ -1,0 +1,26 @@
+
+<div ng-controller="officeExpensesCtrl" class="row">
+<!-- <div style="margin-top: 10px; padding-bottom: 20px; margin-bottom: 20px">
+	<div class="col-lg-1" style="margin-right: -30px">From : </div><div class="col-lg-3"><input type="date" placeholder="dd/mm/yyyy" class="form-control"></div>
+	<div class="col-lg-1" style="margin-right: -35px">To : </div><div class="col-lg-3"><input type="date" placeholder="dd/mm/yyyy" class="form-control"></div>
+	<div class="col-lg-1" >Payee Name : </div><div class="col-lg-2">
+		<select class="form-control">
+			<option>--Select--</option>
+			<option>Payee 1</option>
+			<option>Payee 2</option>
+			<option>Payee 3</option>
+		</select>
+	</div>
+	<div class="col-lg-1"><button class="btn btn-success">Get Details</button></div>
+</div> -->
+	
+		<div class="col-lg-12" style="margin-left: -10px;">
+			<div ui-grid="{ data: users }" class="myGrid"  style="height:516px" ></div>
+		</div>
+	
+	
+		<div class="col-lg-4 tab-css-footer" ng-click="addEmployees()"><span>Add</span></div>
+	    <div class="col-lg-4 tab-css-footer"><span>Modify</span></div>
+	    <div class="col-lg-4 tab-css-footer" style="background-color: red !important"><span>Delete</span></div>
+	
+</div>

@@ -1,0 +1,24 @@
+
+<div ng-controller="client_listCtrl" class="row">
+	<div class="col-lg-6 tab-css" ng-click="setFinanceTab()" ng-class="{tabactive: tabActiveFinance}"><span>Finance</span></div>
+	<div class="col-lg-6 tab-css"  ng-click="setRealEstateTab()" ng-class="{tabactive: tabActiveRealEstate}"><span>Real Estate</span></div>
+	
+<div class="col-lg-12">
+	<div class="row" style="margin-top: 10px; margin-bottom: 10px">
+		<div class="col-lg-1">From : </div><div class="col-lg-3"><input type="date" placeholder="dd/mm/yyyy" class="form-control"></div>
+		<div class="col-lg-1">To : </div><div class="col-lg-3"><input type="date" placeholder="dd/mm/yyyy" class="form-control"></div>
+		<div class="col-lg-2"><button class="btn btn-success">Get Client</button></div>
+	</div>
+	
+</div>
+
+		<div class="col-lg-12" style="margin-left: -10px;">
+			<div ui-grid="{ data: users }" class="myGrid"  style="height:488px"></div>
+		</div>
+	
+	
+		<div class="col-lg-4 tab-css-footer" ng-click="addClient()"><span>Add</span></div>
+	    <div class="col-lg-4 tab-css-footer"><span>Modify</span></div>
+	    <div class="col-lg-4 tab-css-footer" style="background-color: red !important"><span>Delete</span></div>
+	
+</div>
