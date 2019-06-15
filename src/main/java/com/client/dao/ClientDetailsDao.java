@@ -1,6 +1,7 @@
 package com.client.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.json.simple.JSONObject;
 
@@ -16,5 +17,8 @@ public interface ClientDetailsDao {
 	Integer updatePlotDetails(ClientModel clientModel, String plotNumber, String plotType);
 	List<ClientModel> getFinanceClientDetails(JSONObject jsonObject);
 	List<ClientModel> getRealEstateClientDetails(JSONObject jsonObject);
-	List<ClientModel> getPlotDetails(ClientModel clientModel);
+	List<String> getPlotDetails(int clientId, String plotType);
+	
+	Integer insertClientDocoment(String imageName, int clientId);
+	Integer getClientDetailsByMobileSchemeId(String mobileNumber, String schemeId);
 }

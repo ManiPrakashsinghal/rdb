@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,8 +67,8 @@ public class ClientDetailsDaoImpl implements ClientDetailsDao{
 
 	@Override
 	public Integer insertClientFinanceDetails(ClientModel clientModel) {
-		String query = "insert into client_finance_details(client_id, firstReferenceName, firstReferenceMobile, secondReferenceName, secondReferenceMobile, loanAmount, installment, paymentDate, financeDescription)"
-				+ "values(?,?,?,?,?,?,?,?,?)";
+		String query = "insert into client_finance_details(client_id, firstReferenceName, firstReferenceMobile, secondReferenceName, secondReferenceMobile, loanAmount, installment, paymentDate, financeDescription, financeClientMobile, installMentType)"
+				+ "values(?,?,?,?,?,?,?,?,?,?,?)";
 		return jdbcTemplate.update(new PreparedStatementCreator() {
 			
 			@Override
@@ -81,6 +83,8 @@ public class ClientDetailsDaoImpl implements ClientDetailsDao{
 				ps.setString(7, clientModel.getFinanceInstallment());
 				ps.setString(8, clientModel.getFinancePaymentDate());
 				ps.setString(9, clientModel.getFinanceDescription());
+				ps.setString(10, clientModel.getFinanceClientMobile());
+				ps.setString(11, clientModel.getFinanceInstallType());
 				return ps;
 			}
 		});
@@ -91,8 +95,8 @@ public class ClientDetailsDaoImpl implements ClientDetailsDao{
 	public Integer insertClientRealEstateDetails(ClientModel clientModel) {
 		String query = "insert into client_real_estate_details(client_id, nomineeName, 	nomineeRelation, schemeName, "
 				+ "paymentType, installmentAmount, firstInstallmentDate, lastInstallmentDate, totalArea,"
-				+ "basicRateOfPlot, basicRateOfShop, totalPayment, realEstateDescription, plotStatus)"
-				+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				+ "basicRateOfPlot, basicRateOfShop, totalPayment, realEstateDescription, plotStatus,clientMobile)"
+				+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		return jdbcTemplate.update(new PreparedStatementCreator() {
 			
 			@Override
@@ -112,6 +116,7 @@ public class ClientDetailsDaoImpl implements ClientDetailsDao{
 				ps.setString(12, clientModel.getTotalPayment());
 				ps.setString(13, clientModel.getRealEstateDescription());
 				ps.setString(14, clientModel.getPlotStatus());
+				ps.setString(15, clientModel.getRealStateClientMobile());
 				return ps;
 			}
 		});
@@ -159,7 +164,7 @@ public class ClientDetailsDaoImpl implements ClientDetailsDao{
 	public Integer updateClientFinanceDetails(ClientModel clientModel) {
 		String query = "update client_finance_details set firstReferenceName = ?, firstReferenceMobile = ?,"
 				+ "secondReferenceName = ?, secondReferenceMobile = ?, loanAmount = ?, installment = ?,"
-				+ "paymentDate = ?, financeDescription = ? where client_id = ?";
+				+ "paymentDate = ?, financeDescription = ?, financeClientMobile = ? where client_id = ?";
 		return jdbcTemplate.update(new PreparedStatementCreator() {
 			
 			@Override
@@ -173,7 +178,8 @@ public class ClientDetailsDaoImpl implements ClientDetailsDao{
 				ps.setString(6, clientModel.getFinanceInstallment());
 				ps.setString(7, clientModel.getFinancePaymentDate());
 				ps.setString(8, clientModel.getFinanceDescription());
-				ps.setInt(9, clientModel.getClient_id());
+				ps.setString(9, clientModel.getFinanceClientMobile());
+				ps.setInt(10, clientModel.getClient_id());
 				return ps;
 			}
 		});
@@ -185,7 +191,7 @@ public class ClientDetailsDaoImpl implements ClientDetailsDao{
 		String query = "update client_real_estate_details set nomineeName = ?, nomineeRelation = ?,"
 				+ "schemeName = ?, paymentType = ?, installmentAmount = ?, firstInstallmentDate = ?,"
 				+ "lastInstallmentDate = ?, totalArea = ?, basicRateOfPlot = ?, basicRateOfShop = ?,"
-				+ "totalPayment = ?, realEstateDescription = ?, plotStatus = ? where client_id = ?";
+				+ "totalPayment = ?, realEstateDescription = ?, plotStatus = ?, clientMobile = ? where client_id = ?";
 		return jdbcTemplate.update(new PreparedStatementCreator() {
 			
 			@Override
@@ -204,7 +210,9 @@ public class ClientDetailsDaoImpl implements ClientDetailsDao{
 				ps.setString(11, clientModel.getTotalPayment());
 				ps.setString(12, clientModel.getRealEstateDescription());
 				ps.setString(13, clientModel.getPlotStatus());
-				ps.setInt(14, clientModel.getClient_id());
+				ps.setString(14, clientModel.getRealStateClientMobile());
+				ps.setInt(15, clientModel.getClient_id());
+				
 				return ps;
 			}
 		});
@@ -239,14 +247,14 @@ public class ClientDetailsDaoImpl implements ClientDetailsDao{
 		String query = "";
 		if(fromDate != null && toDate != null){
 			query = "select * from client_details inner join client_finance_details "
-					+ "on client_details.client_id = client_finance_details.client_id"
+					+ "on client_details.client_id = client_finance_details.client_id "
 					+ "where registrationDate between '"+fromDate+"' and '"+toDate+"'";
 		}else{
 			query = "select * from client_details inner join client_finance_details "
 					+ "on client_details.client_id = client_finance_details.client_id";
 		}
-		query = "select * from client_details inner join client_finance_details "
-				+ "on client_details.client_id = client_finance_details.client_id";
+		/*query = "select * from client_details inner join client_finance_details "
+				+ "on client_details.client_id = client_finance_details.client_id";*/
 		
 		return jdbcTemplate.query(query, new RowMapper<ClientModel>(){
 
@@ -282,6 +290,7 @@ public class ClientDetailsDaoImpl implements ClientDetailsDao{
 				cm.setFinanceInstallment(rs.getString("installment"));
 				cm.setFinancePaymentDate(rs.getString("paymentDate"));
 				cm.setFinanceDescription(rs.getString("financeDescription"));
+				cm.setFinanceClientMobile(rs.getString("financeClientMobile"));
 				return cm;
 			}
 			
@@ -343,6 +352,35 @@ public class ClientDetailsDaoImpl implements ClientDetailsDao{
 				cm.setTotalPayment(rs.getString("totalPayment"));
 				cm.setRealEstateDescription(rs.getString("realEstateDescription"));
 				cm.setPlotStatus(rs.getString("plotStatus"));
+				cm.setRealStateClientMobile(rs.getString("clientMobile"));
+				
+				/**
+				 * add plot*/
+				List<String> plotNumberArray = getPlotDetails(rs.getInt("client_id"), "p");
+				String plotNumberString = "";
+				for(String p : plotNumberArray){
+					if(plotNumberString == ""){
+						plotNumberString += p;
+					}else{
+						plotNumberString += ","+p;
+					}
+					
+				}
+				cm.setPlotNumber(plotNumberString);
+				
+				/**
+				 * add shop*/
+				List<String> shopNumberArray = getPlotDetails(rs.getInt("client_id"), "s");
+				String shopNumberString = "";
+				for(String s : shopNumberArray){
+					if(shopNumberString == ""){
+						shopNumberString += s;
+					}else{
+						shopNumberString += ","+s;
+					}
+					
+				}
+				cm.setShopNumber(shopNumberString);
 				return cm;
 			}
 		});
@@ -350,25 +388,45 @@ public class ClientDetailsDaoImpl implements ClientDetailsDao{
 
 
 	@Override
-	public List<ClientModel> getPlotDetails(ClientModel clientModel) {
+	public List<String> getPlotDetails(int clientId, String plotType) {
 		String query = "select * from plot_shop_details "
-				+ "where schemeId = ? and client_id = ?";
-		String schemeId = clientModel.getSchemeId();
-		int clientId = clientModel.getClient_id();
+				+ "where plotType = ? and client_id = ?";
+		String plotTypeName = plotType;
+		int clientIdName = clientId;
 
-		return jdbcTemplate.query(query, new Object[]{schemeId, clientId}, new RowMapper<ClientModel>(){
+		return jdbcTemplate.query(query, new Object[]{plotTypeName, clientIdName}, new RowMapper<String>(){
 
 			@Override
-			public ClientModel mapRow(ResultSet rs, int arg1) throws SQLException {
-				ClientModel cm = new ClientModel();
-				cm.setPlot_id(rs.getString("plot_id"));
-				cm.setPlotNumber(rs.getString("plot_number"));
-				cm.setPlotType(rs.getString("plotType"));
-				cm.setPlotStatus(rs.getString("plotStatus"));
-				return cm;
+			public String mapRow(ResultSet rs, int arg1) throws SQLException {
+				String list = rs.getString("plot_number");
+				return list;
 			}
 			
 		});
+	}
+
+
+	@Override
+	public Integer insertClientDocoment(String imageName, int clientId) {
+		String query = "insert into client_image(client_id, image_data) values(?,?)";
+		
+		return jdbcTemplate.update(new PreparedStatementCreator() {
+			
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				PreparedStatement ps = con.prepareStatement(query);
+				ps.setInt(1, clientId);
+				ps.setString(2, imageName);
+				return ps;
+			}
+		});
+	}
+
+
+	@Override
+	public Integer getClientDetailsByMobileSchemeId(String mobileNumber, String schemeId) {
+		String query = "select count(*) from client_real_estate_details where clientMobile = ? and schemeName = ?";
+		return jdbcTemplate.queryForObject(query, new Object[]{mobileNumber, schemeId},Integer.class);
 	}
 
 }

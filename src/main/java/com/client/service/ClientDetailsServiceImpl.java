@@ -1,6 +1,7 @@
 package com.client.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,8 +62,18 @@ public class ClientDetailsServiceImpl implements ClientDetailsService{
 	}
 
 	@Override
-	public List<ClientModel> getPlotDetails(ClientModel clientModel) {
-		return clientDetailsDao.getPlotDetails(clientModel);
+	public List<String> getPlotDetails(int clientId, String plotType) {
+		return clientDetailsDao.getPlotDetails(clientId, plotType);
+	}
+
+	@Override
+	public Integer insertClientDocoment(String imageName, int clientId) {
+		return clientDetailsDao.insertClientDocoment(imageName, clientId);
+	}
+
+	@Override
+	public Integer getClientDetailsByMobileSchemeId(String mobileNumber, String schemeId) {
+		return clientDetailsDao.getClientDetailsByMobileSchemeId(mobileNumber, schemeId);
 	}
 	
 

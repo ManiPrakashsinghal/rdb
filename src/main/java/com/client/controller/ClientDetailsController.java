@@ -31,6 +31,15 @@ public class ClientDetailsController {
 		 * 0 for finance
 		 * 1 for real estate*/
 		try {
+			
+			if(clientModel.getClientType() == 1){
+				if(clientDetailsService.getClientDetailsByMobileSchemeId(clientModel.getRealStateClientMobile(), clientModel.getSchemeId()) > 0){
+					
+					js.put("status", "400");
+					js.put("message", "Mobile Number & Scheme Name Already Exists");
+					return new ResponseEntity<JSONObject>(js, HttpStatus.OK);
+				}
+			}
 			clientPrimaryId = clientDetailsService.insertClientBasicDetails(clientModel);
 			clientModel.setClient_id(clientPrimaryId);
 			if(clientPrimaryId > 0){
@@ -44,6 +53,7 @@ public class ClientDetailsController {
 						js.put("message", "Please Try Again");
 					}
 				}else if(clientModel.getClientType() == 1){
+					
 					int clientRealEstateFlag = clientDetailsService.insertClientRealEstateDetails(clientModel);
 					String[] plotNumberArray = clientModel.getPlotNumber().split(",");
 					String[] shopnumberArray = clientModel.getShopNumber().split(",");
@@ -185,4 +195,5 @@ public class ClientDetailsController {
 		return new ResponseEntity<JSONObject>(js, HttpStatus.OK);
 		
 	}
+	
 }

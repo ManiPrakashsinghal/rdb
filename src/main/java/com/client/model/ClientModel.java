@@ -48,7 +48,30 @@ public class ClientModel {
 	private String plotStatus;
 	private String shopNumber;
 	private int clientType;
+	private String realStateClientMobile;
+	private String financeClientMobile;
+	private String financeInstallType;
 	
+	
+	
+	public String getFinanceInstallType() {
+		return financeInstallType;
+	}
+	public void setFinanceInstallType(String financeInstallType) {
+		this.financeInstallType = financeInstallType;
+	}
+	public String getRealStateClientMobile() {
+		return realStateClientMobile;
+	}
+	public void setRealStateClientMobile(String realStateClientMobile) {
+		this.realStateClientMobile = realStateClientMobile;
+	}
+	public String getFinanceClientMobile() {
+		return financeClientMobile;
+	}
+	public void setFinanceClientMobile(String financeClientMobile) {
+		this.financeClientMobile = financeClientMobile;
+	}
 	public int getClient_id() {
 		return client_id;
 	}
@@ -351,7 +374,9 @@ public class ClientModel {
 				+ ", basicRateOfShop=" + basicRateOfShop + ", totalPayment=" + totalPayment + ", realEstateDescription="
 				+ realEstateDescription + ", plot_id=" + plot_id + ", plotNumber=" + plotNumber + ", plotType="
 				+ plotType + ", plotStatus=" + plotStatus + ", shopNumber=" + shopNumber + ", clientType=" + clientType
-				+ "]";
+				+ ", realStateClientMobile=" + realStateClientMobile + ", financeClientMobile=" + financeClientMobile
+				+ ", financeInstallType=" + financeInstallType + "]";
 	}
+	
 	
 }

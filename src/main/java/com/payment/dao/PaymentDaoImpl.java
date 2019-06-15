@@ -73,11 +73,18 @@ public class PaymentDaoImpl implements PaymentDao{
 	public List<PaymentModel> getPaymentDetails(JSONObject jsonObject) {
 		String fromDate = (String) jsonObject.get("fromDate");
 		String toDate = (String) jsonObject.get("toDate");
+		String mobileNumber = (String) jsonObject.get("mobileNumber");
+		System.out.println("mobile number "+mobileNumber);
 		String query = "";
-		if(fromDate != null && toDate != null){
-			query = "select * from payment_details where paymentDate between '"+fromDate+"' and '"+toDate+"'";
+		if(mobileNumber == null || fromDate != null || toDate != null){
+			mobileNumber = "";
+			fromDate     = "";
+			toDate       = "";
+		}
+		if(fromDate != "" && toDate != ""){
+			query = "select * from payment_details where mobileNumber like '%"+mobileNumber+"%' and paymentDate between '"+fromDate+"' and '"+toDate+"'";
 		}else{
-			query = "select * from payment_details";
+			query = "select * from payment_details where mobileNumber like '%"+mobileNumber+"%'";
 		}
 		
 		return jdbcTemplate.query(query, new RowMapper<PaymentModel>(){
