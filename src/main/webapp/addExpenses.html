@@ -21,7 +21,7 @@
     						 <option ng-repeat="x in payeeArr track by $index" value={{x.id}}>{{x.payeeName}}</option>
     					</select> -->
     					
-    					<select ng-options="item.id as item.payeeName for item in payeeArr track by item.id" ng-model="selected"></select>
+    					<select ng-options="item.id as item.payeeName for item in payeeArr track by item.id" ng-model="selected" class="form-control"></select>
     					
   					</div>
   					<div class="form-group">
