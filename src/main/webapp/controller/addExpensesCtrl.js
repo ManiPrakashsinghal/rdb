@@ -1,17 +1,14 @@
 app.controller('addExpensesCtrl', ['$scope', '$state','share','$http', function($scope, $state,share,$http){
 	
+	
 	/**
-	 * datepicker*/
-	$( function() {
-	    $( "#expensesId" ).datepicker({
-	    	  dateFormat: "yy-mm-dd"
-	    });
-	  } );
+	 * date picker*/
+	share.showDatePicker("expensesId");
+	
 	
 	$scope.setViewDetailsTab = function(){
 		$state.go('officeExpenses');
 	};
-	
 	
     $scope.obj = {payeeName:"",payeeNameId:"",amount:"",oedDate:"",discription:"",inOutExpenses:""};
     $scope.payeeArr = [];
@@ -40,7 +37,6 @@ app.controller('addExpensesCtrl', ['$scope', '$state','share','$http', function(
 				function(res){
 					console.log(res);
 					//alert(res.data.message);
-					 $scope.obj = {payeeName:"",payeeNameId:"",amount:"",oedDate:"",discription:"",inOutExpenses:""};
 					alertS();
 				},function(err){
 					 console.log("Error"+err);

@@ -10,6 +10,11 @@ app.controller('payeeDetailsCtrl', ['$scope', '$state','$http','share', function
 		      enableRowSelection: false,
 		      enableSelectAll: false,
 		      showGridFooter:true,
+		      columnDefs : [
+		                    { field : 'sno', displayName : 'S.No',width:70},
+		                    { field : 'payeeName', displayName : 'Payee Name'},
+		                    { field : 'otherDetails',    displayName : 'Details'},
+		        ],
 		      data: $scope.users
 		    };
 	
@@ -25,10 +30,15 @@ app.controller('payeeDetailsCtrl', ['$scope', '$state','$http','share', function
 	    }
 	
 	
-	$http.get("http://localhost:8090/rdb/getPayeeDetails").then(
+	 $http.get("http://localhost:8090/rdb/getPayeeDetails").then(
 			function(res){
 				console.log(res);
 				$scope.users = res["data"]["allData"];
+				
+				$scope.users.forEach( function( row, index){
+					  row.sno = index+1;
+				});
+				
 				$scope.gridOptions.data = $scope.users;
 			},function(err){
 				 console.log("Error"+err);

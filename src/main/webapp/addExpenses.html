@@ -17,10 +17,12 @@
   					</div>
 					<div class="form-group">
     					<span>Payee Name:</span>
-    					<select class="form-control" ng-model="obj.payeeNameId">
-    					    <option>--Select--</option>
-    						 <option ng-repeat="x in payeeArr" value={{x.id}}>{{x.payeeName}}</option>
-    					</select>
+    					<!-- <select class="form-control" ng-model="obj.payeeNameId">
+    						 <option ng-repeat="x in payeeArr track by $index" value={{x.id}}>{{x.payeeName}}</option>
+    					</select> -->
+    					
+    					<select ng-options="item.id as item.payeeName for item in payeeArr track by item.id" ng-model="selected"></select>
+    					
   					</div>
   					<div class="form-group">
     					<span>Amount:</span>
@@ -28,7 +30,7 @@
   					</div>
   					<div class="form-group">
     					<span>Date:</span>
-    					<input type="text" class="form-control" ng-model="obj.oedDate" id="expensesId">
+    					<input id="expensesId" type="text " class="form-control" ng-model="obj.oedDate">
   					</div>
   					<div class="form-group">
     					<span>Discription:</span>

@@ -7,7 +7,8 @@ app.service('share', function() {
     setMode: setMode,
     getMode: getMode,
     setDetail:setDetail,
-    getDetail:getDetail
+    getDetail:getDetail,
+    showDatePicker:showDatePicker
   };
  
   function setDetail(val) {
@@ -25,6 +26,13 @@ app.service('share', function() {
   function getMode(){
       return mode;
   };
+  
+  function showDatePicker(id){
+	  $( "#"+id ).datepicker({
+    	  dateFormat: "yy-mm-dd"
+    });
+	  
+  }
 
    return factory;
 
