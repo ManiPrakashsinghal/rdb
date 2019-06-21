@@ -33,7 +33,9 @@ app.controller('aCtrl', function($scope) {
 </html>
 
 //multiple chekcBox 
-stack overflow 11945802
-toString();
+https://www.jqueryscript.net/form/Searchable-Multi-select-jQuery-Dropdown.html
+
+//multiple drop down
+https://makitweb.com/make-a-dropdown-with-search-box-using-jquery/
 
 */
