@@ -31,4 +31,9 @@ app.controller('aCtrl', function($scope) {
 
 </body>
 </html>
+
+//multiple chekcBox 
+stack overflow 11945802
+toString();
+
 */
