@@ -38,4 +38,8 @@ https://www.jqueryscript.net/form/Searchable-Multi-select-jQuery-Dropdown.html
 //multiple drop down
 https://makitweb.com/make-a-dropdown-with-search-box-using-jquery/
 
+//aws deploy
+https://howtoprogramwithjava.com/ultimate-guide-hosting-java-web-app-amazon-web-services-aws/
+
+
 */
