@@ -41,5 +41,8 @@ https://makitweb.com/make-a-dropdown-with-search-box-using-jquery/
 //aws deploy
 https://howtoprogramwithjava.com/ultimate-guide-hosting-java-web-app-amazon-web-services-aws/
 
+//import xampp database to rds aws
+https://docs.bitnami.com/aws/how-to/migrate-database-rds/ 
+
 
 */
