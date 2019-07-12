@@ -44,5 +44,8 @@ https://howtoprogramwithjava.com/ultimate-guide-hosting-java-web-app-amazon-web-
 //import xampp database to rds aws
 https://docs.bitnami.com/aws/how-to/migrate-database-rds/ 
 
+//product table stack over flow
+17036376
+
 
 */
